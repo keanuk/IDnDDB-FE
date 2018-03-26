@@ -4,14 +4,15 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-// import { GenderPickerComponent } from './gender-picker/gender-picker.component';
-// import { RacePickerComponent } from './race-picker/race-picker.component';
-// import { ClassPickerComponent } from './class-picker/class-picker.component';
-// import { AttributesPickerComponent } from './attributes-picker/attributes-picker.component';
-// import { PortraitPickerComponent } from './portrait-picker/portrait-picker.component';
-// import { SpellPickerComponent } from './spell-picker/spell-picker.component';
-// import { AlignmentPickerComponent } from './alignment-picker/alignment-picker.component';
-// import { BackgroundPickerComponent } from './background-picker/background-picker.component';
+// import { HomeComponent } from './home/home.component';
+// import { AlignmentComponent } from './alignment/alignment.component';
+// import { AttributesComponent } from './attributes/attributes.component';
+// import { BackgroundComponent } from './background/background.component';
+// import { ClassComponent } from './class/class.component';
+// import { GenderComponent } from './gender/gender.component';
+// import { PortraitComponent } from './portrait/portrait.component';
+// import { RaceComponent } from './race/race.component';
+// import { SpellComponent } from './spell/spell.component';
 
 @NgModule({
   declarations: [
