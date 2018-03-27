@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+// import { CreateComponent } from './create/create.component';
 // import { HomeComponent } from './home/home.component';
 // import { AlignmentComponent } from './alignment/alignment.component';
 // import { AttributesComponent } from './attributes/attributes.component';

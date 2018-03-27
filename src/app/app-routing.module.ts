@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { CreateComponent } from './create/create.component';
 import { AlignmentComponent } from './alignment/alignment.component';
 import { AttributesComponent } from './attributes/attributes.component';
 import { BackgroundComponent } from './background/background.component';
@@ -12,14 +13,34 @@ import { SpellComponent } from './spell/spell.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
-  { path: 'gender', component: GenderComponent},
-  { path: 'race', component: RaceComponent},
-  { path: 'class', component: ClassComponent},
-  { path: 'portrait', component: PortraitComponent},
-  { path: 'attributes', component: AttributesComponent},
-  { path: 'spells', component: SpellComponent},
-  { path: 'alignment', component: AlignmentComponent},
-  { path: 'background', component: BackgroundComponent}
+  { path: 'create', children: [
+    { path: 'gender', component: GenderComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+    { path: 'race', component: RaceComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+    { path: 'class', component: ClassComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+    { path: 'portrait', component: PortraitComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+    { path: 'attributes', component: AttributesComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+    { path: 'spells', component: SpellComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+    { path: 'alignment', component: AlignmentComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+    { path: 'background', component: BackgroundComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
+  ]},
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '**', redirectTo: '/home', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -27,4 +48,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent];
+export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent];
