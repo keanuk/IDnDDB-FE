@@ -1,7 +1,7 @@
 <router-outlet></router-outlet>
 <br><br>
-<button>Male</button>
-<button>Female</button>
-<button>Other</button>
+<button (click)="getGender('male')">{{male}}</button>
+<button>{{female}}</button>
+<button>{{other}}</button>
 <br><br>
 <button routerLink="/create/portrait">Next</button>
