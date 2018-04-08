@@ -14,7 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { EmailComponent } from './email/email.component';
 import { MembersComponent } from './members/members.component';
-import { memory } from '@angular/core/src/render3';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
@@ -48,8 +48,8 @@ const routes: Routes = [
       { path: '', component: CreateComponent},
     ]},
   ]},
-  { path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '**', redirectTo: '/home', pathMatch: 'full'}
+  { path: '', redirectTo: '/login', pathMatch: 'full'},
+  { path: '**', redirectTo: '/login', pathMatch: 'full'}
 ];
 
 @NgModule({
@@ -57,4 +57,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, MembersComponent, SignupComponent, EmailComponent];
+export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, MembersComponent, SignupComponent, EmailComponent, HeaderComponent];
