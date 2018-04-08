@@ -10,6 +10,8 @@ import { GenderComponent } from './gender/gender.component';
 import { PortraitComponent } from './portrait/portrait.component';
 import { RaceComponent } from './race/race.component';
 import { SpellComponent } from './spell/spell.component';
+import { EquipmentComponent } from './equipment/equipment.component';
+import { NameComponent } from './name/name.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},

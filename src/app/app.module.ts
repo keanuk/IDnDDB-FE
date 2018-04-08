@@ -1,9 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+// import { Injectable } from '@angular/core';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+// import { NameComponent } from './name/name.component';
+// import { EquipmentComponent } from './equipment/equipment.component';
 // import { CreateComponent } from './create/create.component';
 // import { HomeComponent } from './home/home.component';
 // import { AlignmentComponent } from './alignment/alignment.component';
@@ -22,7 +26,8 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
