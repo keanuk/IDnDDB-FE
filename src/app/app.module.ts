@@ -1,12 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, OnInit } from '@angular/core';
-
-import { HttpClient, HttpHeaders, HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-// import { HeaderComponent } from './header/header.component';
+import { UserService } from './user.service';
+import { AuthGuard } from './auth.guard';
+import { HeaderComponent } from './header/header.component';
 // import { LoginComponent } from './login/login.component';
 // import { EmailComponent } from './email/email.component';
 // import { SignupComponent } from './signup/signup.component';
@@ -22,24 +23,18 @@ import { AppComponent } from './app.component';
 // import { RaceComponent } from './race/race.component';
 // import { SpellComponent } from './spell/spell.component';
 
-export const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  databaseURL: '',
-  storageBucker: '',
-  messagingSenderId: ''
-}
-
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,16 +14,16 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { EmailComponent } from './email/email.component';
 import { MembersComponent } from './members/members.component';
-import { HeaderComponent } from './header/header.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent},
+  { path: 'home', canActivate: [AuthGuard], component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'email', component: EmailComponent},
   { path: 'members', component:MembersComponent},
   { path: 'create', children: [
-    { path: 'gender', component: GenderComponent, children: [
+    { path: 'gender', canActivate: [AuthGuard], component: GenderComponent, children: [
       { path: '', component: CreateComponent},
     ]},
     { path: 'race', component: RaceComponent, children: [
@@ -57,4 +57,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, MembersComponent, SignupComponent, EmailComponent, HeaderComponent];
+export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, MembersComponent, SignupComponent, EmailComponent];
