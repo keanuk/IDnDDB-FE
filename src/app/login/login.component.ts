@@ -1,9 +1,7 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
-import { Observable } from 'rxjs/Observable';
 
 let apiKey = 'none';
 

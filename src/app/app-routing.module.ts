@@ -26,25 +26,25 @@ const routes: Routes = [
     { path: 'gender', canActivate: [AuthGuard], component: GenderComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'race', component: RaceComponent, children: [
+    { path: 'race', canActivate: [AuthGuard], component: RaceComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'class', component: ClassComponent, children: [
+    { path: 'class', canActivate: [AuthGuard], component: ClassComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'portrait', component: PortraitComponent, children: [
+    { path: 'portrait', canActivate: [AuthGuard], component: PortraitComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'attributes', component: AttributesComponent, children: [
+    { path: 'attributes', canActivate: [AuthGuard], component: AttributesComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'spells', component: SpellComponent, children: [
+    { path: 'spells', canActivate: [AuthGuard], component: SpellComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'alignment', component: AlignmentComponent, children: [
+    { path: 'alignment', canActivate: [AuthGuard], component: AlignmentComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'background', component: BackgroundComponent, children: [
+    { path: 'background', canActivate: [AuthGuard], component: BackgroundComponent, children: [
       { path: '', component: CreateComponent},
     ]},
   ]},
