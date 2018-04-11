@@ -15,7 +15,7 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     this.isUserLoggedIn = false;
-    this.apiKey ='';
+    this.apiKey ='none';
   }
 
   setUserLoggedIn() {
@@ -52,14 +52,6 @@ export class UserService {
 
   getGetCharUrl() {
     return this.rootUrl + 'getChars';
-  }
-
-  getRacesUrl() {
-    return this.rootUrl + 'getRaces';
-  }
-
-  getClassesUrl() {
-    return this.rootUrl + 'getClasses';
   }
 
   getDeleteUserUrl() {
@@ -103,5 +95,4 @@ export class UserService {
       console.log("Error: " + err);
     });
   }
-
 }

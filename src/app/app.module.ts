@@ -6,6 +6,7 @@ import { AppRoutingModule, routingComponents } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { UserService } from './user.service';
+import { DndService } from './dnd.service';
 import { AuthGuard } from './auth.guard';
 import { HeaderComponent } from './header/header.component';
 // import { LoginComponent } from './login/login.component';
@@ -34,7 +35,7 @@ import { HeaderComponent } from './header/header.component';
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService, DndService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,12 +2,15 @@
 <br><br>
 <h2>Race</h2>
 <br><br>
-<ul>
-  <li>Human</li>
-  <li>Dwarf</li>
-  <li>Elf</li>
-  <li>Orc</li>
-</ul>
+<form id="raceForm">
+  <div>
+    <h2>Race</h2>
+    <ul>
+      <li *ngFor="let race in races" [value]="race"><input type="radio">{{race}}</li>
+    </ul>
+  </div>
+</form>
 <br><br>
-<button routerLink="/portrait">Previous</button>
-<button routerLink="/class">Next</button>
+<button routerLink="/create/portrait">Previous</button>
+<button routerLink="/create/class">Next</button>
+<button type="button" name="button" (click) = 'setRace()'>Test</button>
