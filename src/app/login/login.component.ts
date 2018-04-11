@@ -19,10 +19,14 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  goToSignup() {
+    this.router.navigate(['/signup']);
+  }
+
   loginUser(e) {
     e.preventDefault();
-    var username = e.target.elements[0].value;
-    var password = e.target.elements[1].value;
+    let username = e.target.elements[0].value;
+    let password = e.target.elements[1].value;
 
     let userData = this.user.getUserInfo(username, password, (data) => {
       if(data.str)

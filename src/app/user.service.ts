@@ -89,4 +89,19 @@ export class UserService {
     });
   }
 
+  createUser(username, password, callback: (data) => void) {
+    let header = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=utf-8",
+        "Authorization": "Basic " + btoa(username + ":" + password),
+      })
+    };
+    this.http.get<UserInfo[]>(this.getSignUpUrl(), header).subscribe((data) => {
+      callback(data);
+    },
+    err => {
+      console.log("Error: " + err);
+    });
+  }
+
 }
