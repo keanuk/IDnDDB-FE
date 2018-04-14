@@ -5,12 +5,13 @@
 <form id="raceForm">
   <div>
     <h2>Race</h2>
-    <ul>
-      <li *ngFor="let race in races" [value]="race"><input type="radio">{{race}}</li>
+    <ul *ngIf="loaded" >
+      <li *ngFor="let race of races"><input type="radio" name="racePick" [value]="race.name" [(ngModel)]="racePick">{{race.name}}</li>
     </ul>
+    <!-- <div *ngIf="racePick === race.name">{{race.description}}</div> -->
   </div>
 </form>
 <br><br>
 <button routerLink="/create/portrait">Previous</button>
 <button routerLink="/create/class">Next</button>
-<button type="button" name="button" (click) = 'setRace()'>Test</button>
+<!-- <button type="button" name="button" (click) = 'setRace()'>Test</button> -->
