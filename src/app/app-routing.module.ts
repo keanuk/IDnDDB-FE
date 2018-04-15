@@ -19,33 +19,33 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'create', children: [
-    { path: 'gender', canActivate: [AuthGuard], component: GenderComponent, children: [
+    { path: 'gender', component: GenderComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'race', canActivate: [AuthGuard], component: RaceComponent, children: [
+    { path: 'race', component: RaceComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'class', canActivate: [AuthGuard], component: ClassComponent, children: [
+    { path: 'class', component: ClassComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'portrait', canActivate: [AuthGuard], component: PortraitComponent, children: [
+    { path: 'portrait', component: PortraitComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'attributes', canActivate: [AuthGuard], component: AttributesComponent, children: [
+    { path: 'attributes', component: AttributesComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'spells', canActivate: [AuthGuard], component: SpellComponent, children: [
+    { path: 'spells', component: SpellComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'alignment', canActivate: [AuthGuard], component: AlignmentComponent, children: [
+    { path: 'alignment', component: AlignmentComponent, children: [
       { path: '', component: CreateComponent},
     ]},
-    { path: 'background', canActivate: [AuthGuard], component: BackgroundComponent, children: [
+    { path: 'background', component: BackgroundComponent, children: [
       { path: '', component: CreateComponent},
     ]},
   ]},
-  { path: '', redirectTo: '/login', pathMatch: 'full'},
-  { path: '**', redirectTo: '/login', pathMatch: 'full'}
+  { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard]},
+  { path: '**', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard]}
 ];
 
 @NgModule({

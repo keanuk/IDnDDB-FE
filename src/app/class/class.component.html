@@ -1,28 +1,31 @@
 <router-outlet></router-outlet>
-<br><br>
-<h2>Class</h2>
-<br><br>
-<h3>Base Classes</h3>
-<ul>
-  <li>Barbarian</li>
-  <li>Fighter</li>
-  <li>Rogue</li>
-  <li>Paladin</li>
-  <li>Monk</li>
-  <li>Bard</li>
-  <li>Wizard</li>
-  <li>Sorcerer</li>
-  <li>Cleric</li>
-  <li>Favored Soul</li>
-</ul>
 <br>
-<h3>Prestige Classes</h3>
-<ul>
-  <li>Blackguard</li>
-  <li>Eldrich Knight</li>
-  <li>Pale Master</li>
-  <li>Red Dragon Disciple</li>
-</ul>
+<h2>Class</h2>
+<br>
+<form id="classForm">
+  <div *ngIf="loaded" class="selectionWindow">
+    <div class="selectColumn">
+      <label *ngFor="let class of classes">
+        <input type="radio" name="classPick" [value]="class.name" [(ngModel)]="classPick"><span>{{class.name}}</span>
+      </label>
+    </div>
+    <div class="infoColumn">
+      <div *ngFor="let class of classes">
+        <div *ngIf="classPick === class.name">
+          <h3>Description</h3>
+          <div>{{class.desc}}</div>
+          <br><br>
+          <h3>Proficiencies</h3>
+          <ul>
+            <li *ngFor="let prof of class.proficiencies">
+              <span>{{prof}}</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
 <br><br>
 <button routerLink="/create/race">Previous</button>
 <button routerLink="/create/alignment">Next</button>

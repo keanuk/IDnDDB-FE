@@ -2,6 +2,7 @@ import { Component, OnInit, HostBinding } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { DndService } from '../dnd.service';
 
 @Component({
   selector: 'app-class',
@@ -10,9 +11,16 @@ import { UserService } from '../user.service';
 })
 export class ClassComponent implements OnInit {
 
-  constructor(private router: Router, private user: UserService) { }
+  loaded = false;
+  classes = [];
+  constructor(private router: Router, private user: UserService, private dnd: DndService) { }
 
   ngOnInit() {
+    this.dnd.getClassList((data) => {
+      console.log(data);
+      this.classes = data;
+      this.loaded = true;
+    });
   }
 
 }

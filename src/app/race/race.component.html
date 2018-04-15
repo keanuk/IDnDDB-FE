@@ -1,17 +1,26 @@
 <router-outlet></router-outlet>
-<br><br>
+<br>
 <h2>Race</h2>
-<br><br>
+<br>
 <form id="raceForm">
-  <div>
-    <h2>Race</h2>
-    <ul *ngIf="loaded" >
-      <li *ngFor="let race of races"><input type="radio" name="racePick" [value]="race.name" [(ngModel)]="racePick">{{race.name}}</li>
-    </ul>
-    <!-- <div *ngIf="racePick === race.name">{{race.description}}</div> -->
+  <div *ngIf="loaded" class="selectionWindow">
+    <div class="selectColumn">
+      <label *ngFor="let race of races">
+        <input type="radio" name="racePick" [value]="race.name" [(ngModel)]="racePick"><span>{{race.name}}</span>
+      </label>
+    </div>
+    <div class="infoColumn">
+      <div *ngFor="let race of races">
+        <div *ngIf="racePick === race.name">
+          <img [src]="'data:image/jpg;base64,'+race.image"/>
+          <h3>Description</h3>
+          <br>
+          <div>{{race.desc}}</div>
+        </div>
+      </div>
+    </div>
   </div>
 </form>
 <br><br>
 <button routerLink="/create/portrait">Previous</button>
-<button routerLink="/create/class">Next</button>
-<!-- <button type="button" name="button" (click) = 'setRace()'>Test</button> -->
+<button routerLink="/create/class" (click)=setRace()>Next</button>
