@@ -33,5 +33,4 @@ export class RaceComponent implements OnInit {
       return data;
     });
   }
-
 }

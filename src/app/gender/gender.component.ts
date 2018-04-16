@@ -1,22 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpHeaders, HttpInterceptor, HttpEvent, HttpHandler, HttpRequest } from '@angular/common/http';
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
+import { DndService } from '../dnd.service';
+// import { FormGroup, FormBuilder, Validators } from '@angular/forms'
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Authorization': 'Basic ' + btoa('testName' + ':' + 'testPass'),
-  })
-};
-
-const headerDict = {
-  'Content-Type': 'application/json',
-  'Authorization' : 'Basic ' + btoa('testName' + ':' + 'testPass'),
-};
-
-const options = {
-  headers: new Headers(headerDict),
-};
 
 @Component({
   selector: 'app-gender',
@@ -27,21 +15,19 @@ const options = {
 @Injectable()
 export class GenderComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
-  }
-
-  GeraldTest() {
-    console.log(this.http.get('https://idnddb-195923.appspot.com/api/getGerald').subscribe(val => console.log(val)));
-    let username: string = 'test_username';
-    let password: string = 'test_password';
-    let headers = new Headers(headerDict);
-    headers.append("Authorization", "Basic " + btoa(username + ":" + password));
-    headers.append("Content-Type", "application/x-www-form-urlencoded");
-    headers.append("X-Testing", "Testing");
-    this.http.get('https://idnddb-195923.appspot.com/api/testAuth', httpOptions).subscribe(val => console.log(val));
+  // form: FormGroup;
+  constructor(private router: Router, private user: UserService, private dnd: DndService) {
+    // this.form = fb.group({
+    //   // gender: ['', Validators.required]
+    // });
   }
 
   ngOnInit() {
+  }
+
+  setGender(e) {
+    let character = this.user.getNewChar();
+    // console.log(e.target.elements);
   }
 
 }

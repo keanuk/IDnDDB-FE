@@ -39,6 +39,41 @@ p {
   font-size: 14pt;
 }
 
+label {
+    float: left;
+    width: 250px;
+    margin: 4px;
+    background-color: #EFEFEF;
+    border-radius: 4px;
+    border: 1px solid #D0D0D0;
+    overflow: auto;
+    display: block;
+}
+
+label span {
+    text-align: center;
+    font-size: 20px;
+    padding: 13px 0px;
+    display: block;
+}
+
+label input {
+    position:absolute;
+    top:-20px;
+}
+
+input:checked + span {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+input[type="number"] {
+  height: 40px;
+  width: 50px;
+  margin: auto;
+  font-size: 18pt;
+}
+
 .selectionWindow {
   display: flex;
   width: 800px;
@@ -56,30 +91,6 @@ p {
   font-size: 20px;
 }
 
-.selectColumn label {
-    float: left;
-    width: 250px;
-    margin: 4px;
-    background-color: #EFEFEF;
-    border-radius: 4px;
-    border: 1px solid #D0D0D0;
-    overflow: auto;
-    display: block;
-}
-
-.selectColumn label span {
-    text-align: center;
-    font-size: 20px;
-    padding: 13px 0px;
-    display: block;
-}
-
-.selectColumn label input {
-    position:absolute;
-    top:-20px;
-}
-
-.selectColumn input:checked + span {
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
+#attributeForm {
+  font-size: 18pt;
 }

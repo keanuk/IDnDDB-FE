@@ -1,14 +1,38 @@
 <router-outlet></router-outlet>
-<br><br>
+<br>
 <h2>Attributes</h2>
+<br>
+<form id="attributeForm">
+  <div>
+    <span>Strength</span>
+    <input type="number" name="strength" value="strength" min="5" max="30">
+  </div>
+  <br>
+  <div>
+    <span>Dexterity</span>
+    <input type="number" name="dexterity" value="dexterity" min="5" max="30">
+  </div>
+  <br>
+  <div>
+    <span>Constitution</span>
+    <input type="number" name="constitution" value="constitution" min="5" max="30">
+  </div>
+  <br>
+  <div>
+    <span>Intelligence</span>
+    <input type="number" name="intelligence" value="intelligence" min="5" max="30">
+  </div>
+  <br>
+  <div>
+    <span>Wisdom</span>
+    <input type="number" name="wisdom" value="wisdom" min="5" max="30">
+  </div>
+  <br>
+  <div>
+    <span>Charisma</span>
+    <input type="number" name="charisma" value="charisma" min="5" max="30">
+  </div>
+</form>
 <br><br>
-<ul>
-  <li>Strength</li>
-  <li>Intelligence</li>
-  <li>Wisdom</li>
-  <li>Dexterity</li>
-  <li>Stamina</li>
-</ul>
-<br><br>
-<button routerLink="/alignment">Previous</button>
-<button routerLink="/spells">Next</button>
+<button routerLink="/create/alignment">Previous</button>
+<button routerLink="/create/spells">Next</button>

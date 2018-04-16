@@ -7,15 +7,22 @@ import { UserInfo } from './user';
 @Injectable()
 export class UserService {
 
-  private isUserLoggedIn;
+  private isUserLoggedIn = false;
   private username;
-  private apiKey;
+  private apiKey = 'none';
   private rootUrl = 'https://idnddb-195923.appspot.com/api/';
+  private newChar: {[k: string]: any} = {};
 
 
   constructor(private http: HttpClient) {
-    this.isUserLoggedIn = false;
-    this.apiKey ='none';
+  }
+
+  getNewChar() {
+    return localStorage.getItem("newChar");
+  }
+
+  setNewChar(obj) {
+    localStorage.setItem("newChar", obj);
   }
 
   setUserLoggedIn() {
@@ -23,6 +30,7 @@ export class UserService {
   }
 
   setApiKey(key) {
+    localStorage.setItem("apiKey", key);
     this.apiKey = key;
   }
 
@@ -31,7 +39,7 @@ export class UserService {
   }
 
   getApiKey() {
-    return this.apiKey;
+    return localStorage.getItem('apiKey');
   }
 
   getRootUrl() {
@@ -66,33 +74,56 @@ export class UserService {
     return this.rootUrl + 'deleteChars';
   }
 
-  getUserInfo(username, password, callback: (data) => void) {
+  createLoginHeader(username, password) {
     let header = {
       headers: new HttpHeaders({
         "Content-Type": "application/json; charset=utf-8",
         "Authorization": "Basic " + btoa(username + ":" + password),
       })
     };
-    this.http.get<UserInfo[]>(this.getLoginUrl(), header).subscribe((data) => {
+    return header;
+  }
+
+  createApiHeader() {
+    let header = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=utf-8",
+        "Authorization": "Basic " + btoa(this.getApiKey() + ":" + 'gettingChars'),
+      })
+    };
+    return header;
+  }
+
+  getMyChars(callback: (data) => void) {
+    console.log("API Key is: " + this.getApiKey());
+    let header = this.createApiHeader();
+    this.http.get(this.getGetCharUrl(), header).subscribe((data) => {
+      console.log(data);
       callback(data);
     },
     err => {
-      console.log("Error: " + err);
+      console.log(err);
+    });
+  }
+
+  getUserInfo(username, password, callback: (data) => void) {
+    localStorage.setItem('username', username);
+    let header = this.createLoginHeader(username, password);
+    this.http.get(this.getLoginUrl(), header).subscribe((data) => {
+      callback(data);
+    },
+    err => {
+      console.log(err);
     });
   }
 
   createUser(username, password, callback: (data) => void) {
-    let header = {
-      headers: new HttpHeaders({
-        "Content-Type": "application/json; charset=utf-8",
-        "Authorization": "Basic " + btoa(username + ":" + password),
-      })
-    };
-    this.http.get<UserInfo[]>(this.getSignUpUrl(), header).subscribe((data) => {
+    let header = this.createLoginHeader(username, password);
+    this.http.get(this.getSignUpUrl(), header).subscribe((data) => {
       callback(data);
     },
     err => {
-      console.log("Error: " + err);
+      console.log(err);
     });
   }
 }

@@ -1,9 +1,19 @@
 <router-outlet></router-outlet>
-<br><br>
+<br>
 <h2>Gender</h2>
-<br><br>
-<button>Male</button>
-<button>Female</button>
-<button>Other</button>
-<br><br>
-<button routerLink="/create/portrait">Next</button>
+<br>
+<form id="genderForm" (submit)="setGender($event)">
+  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
+    <label>
+      <input type="radio" name="genderPick" [value]="Male"><span>Male</span>
+    </label>
+    <label>
+      <input type="radio" name="genderPick" [value]="Female"><span>Female</span>
+    </label>
+    <label>
+      <input type="radio" name="genderPick" [value]="Other"><span>Other</span>
+    </label>
+  </div>
+  <br><br>
+  <button type="submit">Next</button>
+</form>

@@ -12,12 +12,14 @@ import { RaceComponent } from './race/race.component';
 import { SpellComponent } from './spell/spell.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { CharactersComponent } from './characters/characters.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   { path: 'home', canActivate: [AuthGuard], component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignupComponent},
+  { path: 'characters', component: CharactersComponent },
   { path: 'create', children: [
     { path: 'gender', component: GenderComponent, children: [
       { path: '', component: CreateComponent},
@@ -53,4 +55,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, SignupComponent];
+export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, PortraitComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, SignupComponent, CharactersComponent];

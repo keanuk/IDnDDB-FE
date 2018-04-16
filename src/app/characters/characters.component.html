@@ -1,0 +1,10 @@
+<br>
+<h1>Your Characters</h1>
+<br>
+<div *ngIf="loaded">
+  <div *ngFor="let char of chars" >
+    <div>
+      <span>{{char}}</span>
+    </div>
+  </div>
+</div>

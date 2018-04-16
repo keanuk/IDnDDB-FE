@@ -1,18 +1,42 @@
 <router-outlet></router-outlet>
-<br><br>
+<br>
 <h2>Alignment</h2>
-<br><br>
-<button>Lawful Good</button>
-<button>Neutral Good</button>
-<button>Chaotic Good</button>
 <br>
-<button>Lawful Neutral</button>
-<button>Neutral</button>
-<button>Chaotic Neutral</button>
-<br>
-<button>Lawful Evil</button>
-<button>Neutral Evil</button>
-<button>Chaotic Evil</button>
+<form id="genderForm">
+  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
+    <label>
+      <input type="radio" name="alignmentPick" value="Lawful Good"><span>Lawful Good</span>
+    </label>
+    <label>
+      <input type="radio" name="alignmentPick" value="Neutral Good"><span>Neutral Good</span>
+    </label>
+    <label>
+      <input type="radio" name="alignmentPick" value="Chaotic Good"><span>Chaotic Good</span>
+    </label>
+  </div>
+  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
+    <label>
+      <input type="radio" name="alignmentPick" value="Lawful Neutral"><span>Lawful Neutral</span>
+    </label>
+    <label>
+      <input type="radio" name="alignmentPick" value="Neutral"><span>Neutral</span>
+    </label>
+    <label>
+      <input type="radio" name="alignmentPick" value="Chaotic Neutral"><span>Chaotic Neutral</span>
+    </label>
+  </div>
+  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
+    <label>
+      <input type="radio" name="alignmentPick" value="Lawful Evil"><span>Lawful Evil</span>
+    </label>
+    <label>
+      <input type="radio" name="alignmentPick" value="Neutral Evil"><span>Neutral Evil</span>
+    </label>
+    <label>
+      <input type="radio" name="alignmentPick" value="Chaotic Evil"><span>Chaotic Evil</span>
+    </label>
+  </div>
+</form>
 <br><br>
-<button routerLink="/class">Previous</button>
-<button routerLink="/attributes">Next</button>
+<button routerLink="/create/class">Previous</button>
+<button routerLink="/create/attributes">Next</button>
