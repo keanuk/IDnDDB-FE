@@ -12,4 +12,14 @@ export class AttributesComponent implements OnInit {
   ngOnInit() {
   }
 
+  setAttributes(strength, dexterity, constitution, intelligence, wisdom, charisma) {
+    let newChar: {[k: string]: any} = {};
+    if(localStorage.getItem("newChar") !== null) {
+      newChar = JSON.parse(localStorage.getItem("newChar"));
+    }
+    newChar.stats = {"strength" : strength, "dexterity" : dexterity, "constitution" : constitution, "intelligence" : intelligence, "wisdom" : wisdom, "charisma" : charisma};
+    console.log(newChar);
+    localStorage.setItem("newChar", JSON.stringify(newChar));
+  }
+
 }

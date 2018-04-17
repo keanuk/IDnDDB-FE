@@ -12,4 +12,13 @@ export class AlignmentComponent implements OnInit {
   ngOnInit() {
   }
 
+  setAlignment(myAlignment) {
+    let newChar: {[k: string]: any} = {};
+    if(localStorage.getItem("newChar") !== null) {
+      newChar = JSON.parse(localStorage.getItem("newChar"));
+    }
+    newChar.desc.alignment = myAlignment;
+    console.log(newChar);
+    localStorage.setItem("newChar", JSON.stringify(newChar));
+  }
 }

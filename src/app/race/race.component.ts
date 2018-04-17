@@ -26,11 +26,13 @@ export class RaceComponent implements OnInit {
     });
   }
 
-  setRace() {
-    // let raceName
-    this.dnd.getRaceList((data) => {
-      console.log(data);
-      return data;
-    });
+  setRace(myRace) {
+    let newChar: {[k: string]: any} = {};
+    if(localStorage.getItem("newChar") !== null) {
+      newChar = JSON.parse(localStorage.getItem("newChar"));
+    }
+    newChar.race = myRace;
+    console.log(newChar);
+    localStorage.setItem("newChar", JSON.stringify(newChar));
   }
 }

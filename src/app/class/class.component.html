@@ -6,12 +6,12 @@
   <div *ngIf="loaded" class="selectionWindow">
     <div class="selectColumn">
       <label *ngFor="let class of classes">
-        <input type="radio" name="classPick" [value]="class.name" [(ngModel)]="classPick"><span>{{class.name}}</span>
+        <input type="radio" name="classPick" [value]="class" [(ngModel)]="classPick"><span>{{class.name}}</span>
       </label>
     </div>
     <div class="infoColumn">
       <div *ngFor="let class of classes">
-        <div *ngIf="classPick === class.name">
+        <div *ngIf="classPick === class">
           <h3>Description</h3>
           <div>{{class.desc}}</div>
           <br><br>
@@ -25,7 +25,7 @@
       </div>
     </div>
   </div>
+  <br><br>
+  <button routerLink="/create/race">Previous</button>
+  <button (click)="setClass(classPick)">Next</button>
 </form>
-<br><br>
-<button routerLink="/create/race">Previous</button>
-<button routerLink="/create/alignment">Next</button>

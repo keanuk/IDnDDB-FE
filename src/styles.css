@@ -69,7 +69,13 @@ input:checked + span {
 
 input[type="number"] {
   height: 40px;
-  width: 50px;
+  width: 150px;
+  margin: auto;
+  font-size: 18pt;
+}
+
+input[type="text"] {
+  height: 40px;
   margin: auto;
   font-size: 18pt;
 }

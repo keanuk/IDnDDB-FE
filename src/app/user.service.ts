@@ -11,18 +11,8 @@ export class UserService {
   private username;
   private apiKey = 'none';
   private rootUrl = 'https://idnddb-195923.appspot.com/api/';
-  private newChar: {[k: string]: any} = {};
-
 
   constructor(private http: HttpClient) {
-  }
-
-  getNewChar() {
-    return localStorage.getItem("newChar");
-  }
-
-  setNewChar(obj) {
-    localStorage.setItem("newChar", obj);
   }
 
   setUserLoggedIn() {
@@ -55,7 +45,7 @@ export class UserService {
   }
 
   getPutCharUrl() {
-    return this.rootUrl + 'putChars';
+    return this.rootUrl + 'putChar';
   }
 
   getGetCharUrl() {
@@ -88,10 +78,22 @@ export class UserService {
     let header = {
       headers: new HttpHeaders({
         "Content-Type": "application/json; charset=utf-8",
-        "Authorization": "Basic " + btoa(this.getApiKey() + ":" + 'gettingChars'),
+        "Authorization": "Basic " + btoa(this.getApiKey() + ":" + ''),
       })
     };
     return header;
+  }
+
+  submitNewChar(newChar, callback: (data) => void) {
+    console.log("Submitting new Character");
+    let header = this.createApiHeader();
+    this.http.post(this.getPutCharUrl(), newChar, header).subscribe((data) => {
+      console.log(data);
+      callback(data);
+    },
+    err => {
+      console.log(err);
+    });
   }
 
   getMyChars(callback: (data) => void) {

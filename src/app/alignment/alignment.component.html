@@ -5,38 +5,38 @@
 <form id="genderForm">
   <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
     <label>
-      <input type="radio" name="alignmentPick" value="Lawful Good"><span>Lawful Good</span>
+      <input type="radio" name="alignmentPick" value="Lawful Good" [(ngModel)]="alignmentPick" ><span>Lawful Good</span>
     </label>
     <label>
-      <input type="radio" name="alignmentPick" value="Neutral Good"><span>Neutral Good</span>
+      <input type="radio" name="alignmentPick" value="Neutral Good" [(ngModel)]="alignmentPick" ><span>Neutral Good</span>
     </label>
     <label>
-      <input type="radio" name="alignmentPick" value="Chaotic Good"><span>Chaotic Good</span>
+      <input type="radio" name="alignmentPick" value="Chaotic Good" [(ngModel)]="alignmentPick" ><span>Chaotic Good</span>
     </label>
   </div>
   <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
     <label>
-      <input type="radio" name="alignmentPick" value="Lawful Neutral"><span>Lawful Neutral</span>
+      <input type="radio" name="alignmentPick" value="Lawful Neutral" [(ngModel)]="alignmentPick" ><span>Lawful Neutral</span>
     </label>
     <label>
-      <input type="radio" name="alignmentPick" value="Neutral"><span>Neutral</span>
+      <input type="radio" name="alignmentPick" value="Neutral" [(ngModel)]="alignmentPick" ><span>Neutral</span>
     </label>
     <label>
-      <input type="radio" name="alignmentPick" value="Chaotic Neutral"><span>Chaotic Neutral</span>
+      <input type="radio" name="alignmentPick" value="Chaotic Neutral" [(ngModel)]="alignmentPick" ><span>Chaotic Neutral</span>
     </label>
   </div>
   <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
     <label>
-      <input type="radio" name="alignmentPick" value="Lawful Evil"><span>Lawful Evil</span>
+      <input type="radio" name="alignmentPick" value="Lawful Evil" [(ngModel)]="alignmentPick" ><span>Lawful Evil</span>
     </label>
     <label>
-      <input type="radio" name="alignmentPick" value="Neutral Evil"><span>Neutral Evil</span>
+      <input type="radio" name="alignmentPick" value="Neutral Evil" [(ngModel)]="alignmentPick" ><span>Neutral Evil</span>
     </label>
     <label>
-      <input type="radio" name="alignmentPick" value="Chaotic Evil"><span>Chaotic Evil</span>
+      <input type="radio" name="alignmentPick" value="Chaotic Evil" [(ngModel)]="alignmentPick" ><span>Chaotic Evil</span>
     </label>
   </div>
+  <br><br>
+  <button routerLink="/create/class">Previous</button>
+  <button (click)="setAlignment(alignmentPick)">Next</button>
 </form>
-<br><br>
-<button routerLink="/create/class">Previous</button>
-<button routerLink="/create/attributes">Next</button>

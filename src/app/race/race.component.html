@@ -6,12 +6,12 @@
   <div *ngIf="loaded" class="selectionWindow">
     <div class="selectColumn">
       <label *ngFor="let race of races">
-        <input type="radio" name="racePick" [value]="race.name" [(ngModel)]="racePick"><span>{{race.name}}</span>
+        <input type="radio" name="racePick" [value]="race" [(ngModel)]="racePick"><span>{{race.name}}</span>
       </label>
     </div>
     <div class="infoColumn">
       <div *ngFor="let race of races">
-        <div *ngIf="racePick === race.name">
+        <div *ngIf="racePick === race">
           <img [src]="'data:image/jpg;base64,'+race.image"/>
           <h3>Description</h3>
           <br>
@@ -20,7 +20,7 @@
       </div>
     </div>
   </div>
+  <br><br>
+  <button routerLink="/create/portrait">Previous</button>
+  <button (click)=setRace(racePick)>Next</button>
 </form>
-<br><br>
-<button routerLink="/create/portrait">Previous</button>
-<button routerLink="/create/class" (click)=setRace()>Next</button>

@@ -2,18 +2,18 @@
 <br>
 <h2>Gender</h2>
 <br>
-<form id="genderForm" (submit)="setGender($event)">
+<form id="genderForm">
   <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
     <label>
-      <input type="radio" name="genderPick" [value]="Male"><span>Male</span>
+      <input type="radio" name="genderPick" value="Male" [(ngModel)]="myGender" ><span>Male</span>
     </label>
     <label>
-      <input type="radio" name="genderPick" [value]="Female"><span>Female</span>
+      <input type="radio" name="genderPick" value="Female" [(ngModel)]="myGender" ><span>Female</span>
     </label>
     <label>
-      <input type="radio" name="genderPick" [value]="Other"><span>Other</span>
+      <input type="radio" name="genderPick" value="Other" [(ngModel)]="myGender" ><span>Other</span>
     </label>
   </div>
   <br><br>
-  <button type="submit">Next</button>
+  <button type="submit" (click) = 'setGender(myGender)'>Next</button>
 </form>

@@ -23,4 +23,14 @@ export class ClassComponent implements OnInit {
     });
   }
 
+  setClass(myClass) {
+    let newChar: {[k: string]: any} = {};
+    if(localStorage.getItem("newChar") !== null) {
+      newChar = JSON.parse(localStorage.getItem("newChar"));
+    }
+    newChar.class = myClass;
+    console.log(newChar);
+    localStorage.setItem("newChar", JSON.stringify(newChar));
+  }
+
 }
