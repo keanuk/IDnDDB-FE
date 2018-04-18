@@ -1,19 +1,18 @@
 <router-outlet></router-outlet>
-<br><br>
+<br>
 <h2>Spells</h2>
-<br><br>
-<ul>
-  <li>Level 0</li>
-  <li>Level 1</li>
-  <li>Level 2</li>
-  <li>Level 3</li>
-  <li>Level 4</li>
-  <li>Level 5</li>
-  <li>Level 6</li>
-  <li>Level 7</li>
-  <li>Level 8</li>
-  <li>Level 9</li>
-</ul>
-<br><br>
-<button routerLink="/attributes">Previous</button>
-<button routerLink="/background">Next</button>
+<br>
+<form id="backgroundForm">
+  <span>Name: </span><input type="text" name="name" value="name" [(ngModel)]="name" >
+  <br><br>
+  <span>Description: </span><input type="text" name="ideals" value="ideals" [(ngModel)]="desc" >
+  <br><br>
+  <span>Type: </span><input type="text" name="bonds" value="bonds" [(ngModel)]="type" >
+  <br><br>
+  <span>Uses: </span><input type="number" name="flaws" value="flaws" [(ngModel)]="uses" min="1" >
+  <br><br>
+  <button style="border-radius: 50px; width: 80px; height: 80px; font-size: 20pt;" (click)="addSpell(name, desc, type, uses)">+</button>
+  <br><br>
+  <button routerLink="/create/spells">Previous</button>
+  <button routerLink="/create/equipment">Next</button>
+</form>

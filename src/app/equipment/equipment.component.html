@@ -1,3 +1,20 @@
-<p>
-  equipment works!
-</p>
+<router-outlet></router-outlet>
+<br>
+<h2>Equipment</h2>
+<br>
+<form id="backgroundForm">
+  <span>Name: </span><input type="text" name="name" value="name" [(ngModel)]="name" >
+  <br><br>
+  <span>Description: </span><input type="text" name="desc" value="desc" [(ngModel)]="desc" >
+  <br><br>
+  <span>Type: </span><input type="text" name="type" value="type" [(ngModel)]="type" >
+  <br><br>
+  <span>Worth: </span><input type="number" name="worth" value="worth" [(ngModel)]="worth" min="1" >
+  <br><br>
+  <span>Damage: </span><input type="number" name="worth" value="worth" [(ngModel)]="worth" min="1" >
+  <br><br>
+  <button style="border-radius: 50px; width: 80px; height: 80px; font-size: 20pt;" (click)="addSpell(name, desc, type, uses)">+</button>
+  <br><br>
+  <button routerLink="/create/spells">Previous</button>
+  <button routerLink="/create/equipment">Next</button>
+</form>
