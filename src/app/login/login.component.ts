@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
       if(data.str)
         apiKey = data.str;
       if(apiKey != 'none') {
-        this.user.setUserLoggedIn();
         this.user.setApiKey(apiKey);
         this.router.navigate(['/home']);
       }

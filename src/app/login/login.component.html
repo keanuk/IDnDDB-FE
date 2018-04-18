@@ -1,14 +1,19 @@
 <form (submit)="loginUser($event)">
+  <br><br>
+  <h3>Login</h3>
+  <br><br>
   <div>
-    <label for="username">Username</label>
-    <input type="text">
+    <span for="username">Username: </span>
+    <input type="text" class="card">
   </div>
+  <br><br>
   <div>
-    <label>Password</label>
-    <input type="password">
+    <span>Password: </span>
+    <input type="password" class="card">
   </div>
+  <br><br>
   <div>
     <button type="submit" value="login">Login</button>
-    <button routerLink="/signup" value="signup">Create New Account</button>
+    <button routerLink="/signup" value="signup">New Account</button>
   </div>
 </form>

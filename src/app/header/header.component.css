@@ -2,6 +2,25 @@
     background: black;
     background-color: black;
     margin-top: -30px;
-    top: 0;
   }
-  
+
+  a {
+    color: white;
+    text-decoration: none;
+    user-select: none;
+  }
+
+  ul {
+    list-style-type: none;
+  }
+
+  .appTitle {
+    padding-top: 15px;
+    color: white;
+    user-select: none;
+    text-decoration: none;
+  }
+
+  .logout {
+    font-size: 14pt;
+  }

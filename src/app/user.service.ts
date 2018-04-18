@@ -7,7 +7,6 @@ import { UserInfo } from './user';
 @Injectable()
 export class UserService {
 
-  private isUserLoggedIn = false;
   private username;
   private apiKey = 'none';
   private rootUrl = 'https://idnddb-195923.appspot.com/api/';
@@ -15,17 +14,13 @@ export class UserService {
   constructor(private http: HttpClient) {
   }
 
-  setUserLoggedIn() {
-    this.isUserLoggedIn = true;
+  getCheckTokenUrl() {
+    return this.getRootUrl() + 'checkToken';
   }
 
   setApiKey(key) {
     localStorage.setItem("apiKey", key);
     this.apiKey = key;
-  }
-
-  getUserLoggedIn() {
-    return this.isUserLoggedIn;
   }
 
   getApiKey() {
@@ -82,6 +77,18 @@ export class UserService {
       })
     };
     return header;
+  }
+
+  verifyLogin(callback: (data) => void) {
+    let header =  this.createApiHeader();
+    this.http.get(this.getCheckTokenUrl(), header).subscribe((data) => {
+      console.log("Checking api token");
+      console.log(data);
+      callback(data);
+    },
+    err => {
+      console.log(err);
+    });
   }
 
   submitNewChar(newChar, callback: (data) => void) {

@@ -1,0 +1,13 @@
+nav {
+  width: 100vw;
+  background-color: black;
+  color: white;
+  height: 50px;
+}
+
+a {
+  font-size: 16pt;
+  text-decoration: none;
+  color: white;
+  user-select: none;
+}

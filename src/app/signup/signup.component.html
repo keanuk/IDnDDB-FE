@@ -1,17 +1,23 @@
 <form (submit)="createUser($event)">
+  <br><br>
+  <h3>Sign Up</h3>
+  <br><br>
   <div>
-    <label for="username">Username</label>
-    <input type="text">
+    <span for="username">Username: </span>
+    <input type="text" class="card">
   </div>
+  <br><br>
   <div>
-    <label>Password</label>
-    <input type="password">
+    <span>Password: </span>
+    <input type="password" class="card">
   </div>
+  <br><br>
   <div>
-    <label>Verify Password</label>
-    <input type="password">
+    <span>Verify Password: </span>
+    <input type="password" class="card">
   </div>
+  <br><br>
   <div>
-    <input type="submit" value="signup">
+    <button type="submit" value="signup">Submit</button>
   </div>
 </form>
