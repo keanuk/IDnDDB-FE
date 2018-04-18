@@ -32,7 +32,7 @@ export class BackgroundComponent implements OnInit {
     newChar.desc.background = history;
     newChar.exp = xp;
     console.log(newChar);
-    localStorage.setItem("newChar", JSON.stringify(newChar));
+    localStorage.removeItem("newChar");
 
     this.submitChar(newChar);
   }

@@ -15,6 +15,6 @@
   <br><br>
   <span>Experience: </span><input type="number" name="xp" value="xp" [(ngModel)]="xp" min="0" >
   <br><br>
-  <button routerLink="/spells">Previous</button>
-  <button (click)="setBackground(name, ideals, bonds, flaws, history, xp)">Complete</button>
+  <button routerLink="/create/spells">Previous</button>
+  <button (click)="setBackground(name, ideals, bonds, flaws, history, xp)" routerLink="/characters">Complete</button>
 </form>
