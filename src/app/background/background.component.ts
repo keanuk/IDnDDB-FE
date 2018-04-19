@@ -26,10 +26,10 @@ export class BackgroundComponent implements OnInit {
       newChar = JSON.parse(localStorage.getItem("newChar"));
     }
     newChar.name = name;
-    newChar.desc.ideals = ideals;
-    newChar.desc.bonds = bonds;
-    newChar.desc.flaws = flaws;
-    newChar.desc.background = history;
+    newChar.desc = {"ideals": ideals};
+    newChar.desc = {"bonds": bonds};
+    newChar.desc = {"flaws": flaws};
+    newChar.desc = {"background": history};
     newChar.exp = xp;
     console.log(newChar);
     localStorage.removeItem("newChar");
