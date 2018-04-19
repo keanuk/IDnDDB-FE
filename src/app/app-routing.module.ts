@@ -14,6 +14,7 @@ import { EquipmentComponent } from './equipment/equipment.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CharactersComponent } from './characters/characters.component';
+import { InventoryComponent } from './inventory/inventory.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
@@ -32,7 +33,7 @@ const routes: Routes = [
       { path: '', component: CreateComponent},
     ]},
     { path: 'equipment', component: EquipmentComponent, children: [
-      { path: '', component: EquipmentComponent},
+      { path: '', component: CreateComponent},
     ]},
     { path: 'attributes', component: AttributesComponent, children: [
       { path: '', component: CreateComponent},
@@ -46,6 +47,9 @@ const routes: Routes = [
     { path: 'background', component: BackgroundComponent, children: [
       { path: '', component: CreateComponent},
     ]},
+    { path: 'inventory', component: InventoryComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
   ]},
   { path: '', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard]},
   { path: '**', redirectTo: 'home', pathMatch: 'full', canActivate: [AuthGuard]}
@@ -56,4 +60,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, EquipmentComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, SignupComponent, CharactersComponent];
+export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, EquipmentComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, SignupComponent, CharactersComponent, InventoryComponent];

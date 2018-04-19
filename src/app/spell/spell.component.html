@@ -5,14 +5,14 @@
 <form id="backgroundForm">
   <span>Name: </span><input type="text" name="name" value="name" [(ngModel)]="name" >
   <br><br>
-  <span>Description: </span><input type="text" name="ideals" value="ideals" [(ngModel)]="desc" >
+  <span>Description: </span><input type="text" name="desc" value="desc" [(ngModel)]="desc" >
   <br><br>
-  <span>Type: </span><input type="text" name="bonds" value="bonds" [(ngModel)]="type" >
+  <span>Type: </span><input type="text" name="type" value="type" [(ngModel)]="type" >
   <br><br>
-  <span>Uses: </span><input type="number" name="flaws" value="flaws" [(ngModel)]="uses" min="1" >
+  <span>Uses: </span><input type="number" name="uses" value="uses" [(ngModel)]="uses" min="1" >
   <br><br>
   <button style="border-radius: 50px; width: 80px; height: 80px; font-size: 20pt;" (click)="addSpell(name, desc, type, uses)">+</button>
   <br><br>
-  <button routerLink="/create/spells">Previous</button>
+  <button routerLink="/create/attributes">Previous</button>
   <button routerLink="/create/equipment">Next</button>
 </form>
