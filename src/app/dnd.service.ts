@@ -21,6 +21,19 @@ export class DndService {
     return this.rootUrl + 'getClasses';
   }
 
+  getSkillsUrl() {
+    return this.rootUrl + 'getSkills';
+  }
+
+  getSkillList(callback: (data) => void) {
+    this.http.get(this.getSkillsUrl()).subscribe((data) => {
+      callback(data);
+    },
+    err => {
+      console.log("Error: " + err);
+    });
+  }
+
   getRaceList(callback: (data) => void) {
     this.http.get(this.getRacesUrl()).subscribe((data) => {
       callback(data);

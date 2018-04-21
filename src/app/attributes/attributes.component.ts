@@ -18,6 +18,9 @@ export class AttributesComponent implements OnInit {
       newChar = JSON.parse(localStorage.getItem("newChar"));
     }
     newChar.stats = {"strength" : strength, "dexterity" : dexterity, "constitution" : constitution, "intelligence" : intelligence, "wisdom" : wisdom, "charisma" : charisma};
+
+    newChar.mods = {"strengthMod" : (strength - 10) / 2, "dexterityMod" : (dexterity - 10) / 2, "constitutionMod" : (constitution - 10) / 2, "intelligenceMod" : (intelligence - 10) / 2, "wisdomMod" : (wisdom - 10) / 2, "charismaMod" : (charisma - 10) / 2};
+
     console.log(newChar);
     localStorage.setItem("newChar", JSON.stringify(newChar));
   }

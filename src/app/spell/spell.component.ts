@@ -23,8 +23,5 @@ export class SpellComponent implements OnInit {
     else {
       newChar.skills = [{"name": name, "desc": desc, "type": type, "numUses": uses}];
     }
-    console.log(newChar);
-    localStorage.setItem("newChar", JSON.stringify(newChar));
   }
-
 }

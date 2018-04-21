@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { DndService } from '../dnd.service';
 
 @Component({
   selector: 'app-background',
@@ -8,7 +9,7 @@ import { UserService } from '../user.service';
 })
 export class BackgroundComponent implements OnInit {
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService, private dnd: DndService) { }
 
   ngOnInit() {
   }
@@ -31,10 +32,15 @@ export class BackgroundComponent implements OnInit {
     newChar.desc.flaws = flaws;
     newChar.desc.background = history;
     newChar.exp = xp;
-    console.log(newChar);
-    localStorage.removeItem("newChar");
 
-    this.submitChar(newChar);
+    this.dnd.getSkillList((data) => {
+      console.log(data);
+      newChar.skills = data;
+      console.log(newChar);
+      localStorage.removeItem("newChar");
+      this.submitChar(newChar);
+    });
+
   }
 
 }
