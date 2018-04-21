@@ -12,4 +12,14 @@ export class PortraitComponent implements OnInit {
   ngOnInit() {
   }
 
+  setPortrait(image) {
+    let newChar: {[k: string]: any} = {};
+    if(localStorage.getItem("newChar") !== null) {
+      newChar = JSON.parse(localStorage.getItem("newChar"));
+    }
+    newChar.portrait = image;
+    console.log(newChar);
+    localStorage.setItem("newChar", JSON.stringify(newChar));
+  }
+
 }

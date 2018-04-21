@@ -26,6 +26,9 @@ const routes: Routes = [
     { path: 'gender', component: GenderComponent, children: [
       { path: '', component: CreateComponent},
     ]},
+    { path: 'portrait', component: PortraitComponent, children: [
+      { path: '', component: CreateComponent},
+    ]},
     { path: 'race', component: RaceComponent, children: [
       { path: '', component: CreateComponent},
     ]},
@@ -60,4 +63,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, RaceComponent, ClassComponent, EquipmentComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, SignupComponent, CharactersComponent, InventoryComponent];
+export const routingComponents = [HomeComponent, CreateComponent, GenderComponent, PortraitComponent, RaceComponent, ClassComponent, EquipmentComponent, AttributesComponent, SpellComponent, AlignmentComponent, BackgroundComponent, LoginComponent, SignupComponent, CharactersComponent, InventoryComponent];

@@ -1,8 +1,20 @@
 <router-outlet></router-outlet>
-<br><br>
-<h2>Portrait</h2>
-<br><br>
-<h2>Insert grid of portraits here</h2>
-<br><br>
-<button routerLink="/gender">Previous</button>
-<button routerLink="/race">Next</button>
+<br>
+<h2>Portriat</h2>
+<br>
+<form id="portriatForm">
+  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
+    <label>
+      <input type="radio" name="portraitPick" value="Male" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/xe0ZJix.jpg">
+    </label>
+    <label>
+      <input type="radio" name="portraitPick" value="Female" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/xe0ZJix.jpg">
+    </label>
+    <label>
+      <input type="radio" name="portraitPick" value="Other" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/xe0ZJix.jpg">
+    </label>
+  </div>
+  <br><br>
+  <button (click) = 'setPortrait(myPortrait)' routerLink="/create/gender">Previous</button>
+  <button type="submit" (click) = 'setPortrait(myPortrait)' routerLink="/create/race">Next</button>
+</form>
