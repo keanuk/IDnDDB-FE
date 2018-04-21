@@ -1,20 +1,56 @@
 <router-outlet></router-outlet>
 <br>
-<h2>Equipment</h2>
+<h2>Inventory</h2>
 <br>
-<form id="backgroundForm">
-  <span>Name: </span><input type="text" name="name" value="name" [(ngModel)]="name" >
+<form id="equipmentForm">
+  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
+    <label>
+      <input type="radio" name="equipment" value="weapons" [(ngModel)]="equipment" ><span>Weapon</span>
+    </label>
+    <label>
+      <input type="radio" name="equipment" value="clothes" [(ngModel)]="equipment" ><span>Armor</span>
+    </label>
+    <label>
+      <input type="radio" name="equipment" value="item" [(ngModel)]="equipment" ><span>Item</span>
+    </label>
+  </div>
   <br><br>
-  <span>Description: </span><input type="text" name="desc" value="desc" [(ngModel)]="desc" >
-  <br><br>
-  <span>Type: </span><input type="text" name="type" value="type" [(ngModel)]="type" >
-  <br><br>
-  <span>Worth: </span><input type="number" name="worth" value="worth" [(ngModel)]="worth" min="1" >
-  <br><br>
-  <span>Damage: </span><input type="number" name="worth" value="worth" [(ngModel)]="worth" min="1" >
-  <br><br>
-  <button style="border-radius: 50px; width: 80px; height: 80px; font-size: 20pt;" (click)="addSpell(name, desc, type, uses)">+</button>
+  <div *ngIf="equipment === 'clothes'" >
+    <span>Name: </span><input type="text" name="name" value="name" [(ngModel)]="name" >
+    <br><br>
+    <span>Description: </span><input type="text" name="desc" value="desc" [(ngModel)]="desc" >
+    <br><br>
+    <span>Worth: </span><input type="number" name="worth" value="worth" [(ngModel)]="worth" min="1" >
+    <br><br>
+    <span>AC: </span><input type="number" name="ac" value="ac" [(ngModel)]="ac" min="0" >
+    <br><br>
+    <button style="border-radius: 50px; width: 80px; height: 80px; font-size: 20pt;" (click)="addArmor(name, desc, worth, ac)">+</button>
+  </div>
+  <div *ngIf="equipment === 'weapons'" >
+    <span>Name: </span><input type="text" name="name" value="name" [(ngModel)]="name" >
+    <br><br>
+    <span>Description: </span><input type="text" name="desc" value="desc" [(ngModel)]="desc" >
+    <br><br>
+    <span>Type: </span><input type="text" name="type" value="type" [(ngModel)]="type" >
+    <br><br>
+    <span>Worth: </span><input type="number" name="worth" value="worth" [(ngModel)]="worth" min="1" >
+    <br><br>
+    <span>Sides: </span><input type="number" name="sides" value="sides" [(ngModel)]="sides" min="4" >
+    <br><br>
+    <span>Roles: </span><input type="number" name="roles" value="roles" [(ngModel)]="roles" min="1" >
+    <br><br>
+    <button style="border-radius: 50px; width: 80px; height: 80px; font-size: 20pt;" (click)="addWeapon(name, desc, type, worth, sides, roles)">+</button>
+  </div>
+  <div *ngIf="equipment === 'item'" >
+    <span>Name: </span><input type="text" name="name" value="name" [(ngModel)]="name" >
+    <br><br>
+    <span>Description: </span><input type="text" name="desc" value="desc" [(ngModel)]="desc" >
+    <br><br>
+    <span>Worth: </span><input type="number" name="worth" value="worth" [(ngModel)]="worth" min="1" >
+    <br><br>
+    <button style="border-radius: 50px; width: 80px; height: 80px; font-size: 20pt;" (click)="addItem(name, desc, worth)">+</button>
+  </div>
   <br><br>
   <button routerLink="/create/spells">Previous</button>
-  <button routerLink="/create/equipment">Next</button>
+  <button routerLink="/create/background">Next</button>
 </form>

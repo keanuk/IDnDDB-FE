@@ -17,7 +17,7 @@ export class AlignmentComponent implements OnInit {
     if(localStorage.getItem("newChar") !== null) {
       newChar = JSON.parse(localStorage.getItem("newChar"));
     }
-    newChar.desc.alignment = myAlignment;
+    newChar.desc = {"alignment": myAlignment};
     console.log(newChar);
     localStorage.setItem("newChar", JSON.stringify(newChar));
   }

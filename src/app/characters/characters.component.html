@@ -1,10 +1,30 @@
 <br>
-<h1>Your Characters</h1>
+<h1 style="color: black">Your Characters</h1>
 <br>
-<div *ngIf="loaded">
-  <div *ngFor="let char of chars" >
-    <div>
-      <span>{{char}}</span>
+<div *ngIf="loaded" class="selectionWindow">
+  <div class="selectColumn">
+    <div *ngFor="let char of chars" >
+      <label>
+        <input type="radio" name="charName" [value]="char" [(ngModel)]="charName"><span>{{char.name}}</span>
+      </label>
+    </div>
+  </div>
+  <div class="infoColumn">
+    <div *ngFor="let char of chars" >
+      <div *ngIf="charName === char">
+        <h3>Race</h3>
+        <div>{{char.race.name}}: </div>
+        <div>{{char.race.desc}}</div>
+        <br><br>
+        <h3>Class</h3>
+        <div>{{char.class.name}}: </div>
+        <div>{{char.class.desc}}</div>
+        <ul>
+          <li *ngFor="let prof of char.class.proficiencies">
+            <span>{{prof}}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
