@@ -1,8 +1,27 @@
+form {
+  margin:auto;
+}
+
 img {
   max-width: 300px;
   max-height: 300px;
 }
 
-label > input:checked + img{ /* (RADIO CHECKED) IMAGE STYLES */
+label {
+  background-color: rgba(0,0,0,0);
+  outline: none;
+  border: none;
+}
+
+label > input + img {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+label > input + img:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+label > input:checked + img {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.50), 0 10px 10px rgba(0,0,0,0.44);
 }

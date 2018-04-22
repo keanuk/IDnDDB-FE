@@ -12,10 +12,39 @@
     <div class="infoColumn">
       <div *ngFor="let race of races">
         <div *ngIf="racePick === race">
-          <img [src]="'data:image/jpg;base64,'+race.image"/>
+          <img src="{{race.image}}"/>
           <h3>Description</h3>
           <br>
           <div>{{race.desc}}</div>
+          <br>
+          <h3>Traits</h3>
+          <ul>
+            <li *ngFor="let trait of race.traits">
+              <span style="text-align: left">{{trait}}</span>
+            </li>
+          </ul>
+          <br>
+          <h3>Bonuses</h3>
+          <ul>
+            <li>
+              <span>Strength: {{race.bonuses.strengthMod}}</span>
+            </li>
+            <li>
+              <span>Dexterity: {{race.bonuses.dexterityMod}}</span>
+            </li>
+            <li>
+              <span>Constitution: {{race.bonuses.constitutionMod}}</span>
+            </li>
+            <li>
+              <span>Intelligence: {{race.bonuses.intelligenceMod}}</span>
+            </li>
+            <li>
+              <span>Wisdom: {{race.bonuses.wisdomMod}}</span>
+            </li>
+            <li>
+              <span>Charisma: {{race.bonuses.charismaMod}}</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

@@ -17,6 +17,12 @@ export class GenderComponent implements OnInit {
   }
 
   ngOnInit() {
+    let newChar: {[k: string]: any} = {};
+    if(localStorage.getItem("newChar") !== null) {
+      newChar = JSON.parse(localStorage.getItem("newChar"));
+    }
+    if(newChar.gender == null)
+      newChar.gender = "Other";
   }
 
   setGender(myGender) {

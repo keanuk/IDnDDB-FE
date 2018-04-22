@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortraitComponent implements OnInit {
 
+  charGender = '';
+  loaded = false;
+
   constructor() { }
 
   ngOnInit() {
+    if(localStorage.getItem("newChar") !== null) {
+      let newChar = JSON.parse(localStorage.getItem("newChar"));
+      this.charGender = newChar.gender;
+      console.log("Got gender: " + this.charGender);
+    }
+    this.loaded = true;
+    console.log("loaded");
   }
 
   setPortrait(image) {

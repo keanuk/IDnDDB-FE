@@ -18,6 +18,10 @@ export class UserService {
     return this.getRootUrl() + 'checkToken';
   }
 
+  getUserName() {
+    return localStorage.getItem("username");
+  }
+
   setApiKey(key) {
     localStorage.setItem("apiKey", key);
     this.apiKey = key;
@@ -129,6 +133,22 @@ export class UserService {
   createUser(username, password, callback: (data) => void) {
     let header = this.createLoginHeader(username, password);
     this.http.get(this.getSignUpUrl(), header).subscribe((data) => {
+      callback(data);
+    },
+    err => {
+      console.log(err);
+    });
+  }
+
+  deleteAccount(callback: (data) => void) {
+    let header = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=utf-8",
+        "Authorization": "Basic " + btoa(this.getUserName() + ":" + "root"),
+      })
+    };
+    this.http.get(this.getDeleteUserUrl(), header).subscribe((data) => {
+      console.log(data);
       callback(data);
     },
     err => {

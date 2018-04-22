@@ -40,7 +40,5 @@ export class BackgroundComponent implements OnInit {
       localStorage.removeItem("newChar");
       this.submitChar(newChar);
     });
-
   }
-
 }

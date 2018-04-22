@@ -21,4 +21,10 @@ export class CharactersComponent implements OnInit {
     });
   }
 
+  deleteAccount() {
+    this.user.deleteAccount((data) => {
+      console.log("Deleting Account");
+      console.log(data);
+    });
+  }
 }

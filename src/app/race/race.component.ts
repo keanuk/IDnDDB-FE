@@ -33,9 +33,7 @@ export class RaceComponent implements OnInit {
     }
     newChar.race = myRace;
 
-    if(myRace === "Human") {
-      newChar.bonuses = {"strengthMod": 0, "dexterityMod": 0, "constitutionMod": 0, "intrelligenceMod": 0, "wisdomMod": 0, "charismaMod": 0};
-    }
+    newChar.bonuses = myRace.bonuses;
 
     console.log(newChar);
     localStorage.setItem("newChar", JSON.stringify(newChar));

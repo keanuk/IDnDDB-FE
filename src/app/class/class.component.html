@@ -12,6 +12,9 @@
     <div class="infoColumn">
       <div *ngFor="let class of classes">
         <div *ngIf="classPick === class">
+          <div class="crop">
+            <img src="{{class.image}}" alt="Portrait"/>
+          </div>
           <h3>Description</h3>
           <div>{{class.desc}}</div>
           <br><br>

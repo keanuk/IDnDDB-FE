@@ -3,16 +3,29 @@
 <h2>Portriat</h2>
 <br>
 <form id="portriatForm">
-  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)">
-    <label>
-      <input type="radio" name="portraitPick" value="Male" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/xe0ZJix.jpg">
-    </label>
-    <label>
-      <input type="radio" name="portraitPick" value="Female" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/xe0ZJix.jpg">
-    </label>
-    <label>
-      <input type="radio" name="portraitPick" value="Other" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/xe0ZJix.jpg">
-    </label>
+  <div class="selectionWindow" style="background-color: rgba(0, 0, 0, 0)" *ngIf="loaded" >
+    <div id="malePortraits" *ngIf="charGender === 'Male' || charGender === 'Other'">
+      <label>
+        <input type="radio" name="portraitPick" value="https://i.imgur.com/xe0ZJix.jpg" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/xe0ZJix.jpg">
+      </label>
+      <label>
+        <input type="radio" name="portraitPick" value="https://i.imgur.com/CUX6jK3.jpg" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/CUX6jK3.jpg">
+      </label>
+      <label>
+        <input type="radio" name="portraitPick" value="https://i.imgur.com/kTHPUOK.jpg" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/kTHPUOK.jpg">
+      </label>
+    </div>
+    <div id="femalePortraits" *ngIf="charGender === 'Female' || charGender === 'Other'" >
+      <label>
+        <input type="radio" name="portraitPick" value="https://i.imgur.com/ehOLo0W.jpg" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/ehOLo0W.jpg">
+      </label>
+      <label>
+        <input type="radio" name="portraitPick" value="https://i.imgur.com/9oE2hz2.jpg" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/9oE2hz2.jpg">
+      </label>
+      <label>
+        <input type="radio" name="portraitPick" value="https://i.imgur.com/1RRo9Bp.jpg" [(ngModel)]="myPortrait" ><img src="https://i.imgur.com/1RRo9Bp.jpg">
+      </label>
+    </div>
   </div>
   <br><br>
   <button (click) = 'setPortrait(myPortrait)' routerLink="/create/gender">Previous</button>
