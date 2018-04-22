@@ -16,6 +16,8 @@ export class RaceComponent implements OnInit {
 
 	loaded = false;
   races = [];
+  public racePick = "";
+
   constructor(private router: Router, private user: UserService, private dnd: DndService) { }
 
   ngOnInit() {
@@ -23,6 +25,7 @@ export class RaceComponent implements OnInit {
       console.log(data);
       this.races = data;
       this.loaded = true;
+      this.racePick = data[3];
     });
   }
 

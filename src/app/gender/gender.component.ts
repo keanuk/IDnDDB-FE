@@ -12,11 +12,14 @@ import { UserService } from '../user.service';
 @Injectable()
 export class GenderComponent implements OnInit {
 
+  public myGender = '';
+
   constructor(private router: Router, private user: UserService) {
 
   }
 
   ngOnInit() {
+    this.myGender = 'Other';
     let newChar: {[k: string]: any} = {};
     if(localStorage.getItem("newChar") !== null) {
       newChar = JSON.parse(localStorage.getItem("newChar"));

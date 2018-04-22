@@ -13,6 +13,7 @@ export class ClassComponent implements OnInit {
 
   loaded = false;
   classes = [];
+  public classPick = '';
   constructor(private router: Router, private user: UserService, private dnd: DndService) { }
 
   ngOnInit() {
@@ -20,6 +21,7 @@ export class ClassComponent implements OnInit {
       console.log(data);
       this.classes = data;
       this.loaded = true;
+      this.classPick = data[0];
     });
   }
 
