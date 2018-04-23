@@ -27,4 +27,11 @@ export class CharactersComponent implements OnInit {
       console.log(data);
     });
   }
+
+  deleteChar(char) {
+    console.log("Deleting single character: " + char);
+    this.user.deleteChar(char, (data) => {
+      console.log(data);
+    });
+  }
 }

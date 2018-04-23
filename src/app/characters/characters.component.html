@@ -5,25 +5,88 @@
   <div class="selectColumn">
     <div *ngFor="let char of chars" >
       <label>
-        <input type="radio" name="charName" [value]="char" [(ngModel)]="charName"><span>{{char.name}}</span>
+        <input type="radio" name="charName" [value]="char.name" [(ngModel)]="charName"><span>{{char.name}}</span>
       </label>
     </div>
   </div>
   <div class="infoColumn">
     <div *ngFor="let char of chars" >
-      <div *ngIf="charName === char">
-        <h3>Race</h3>
-        <div>{{char.race.name}}: </div>
+      <div *ngIf="charName === char.name">
+        <img src="{{char.portrait}}" alt="portrait">
+        <h2>Race</h2>
+        <img src="{{char.race.image}}" alt="race-image">
+        <h3>{{char.race.name}}</h3>
         <div>{{char.race.desc}}</div>
-        <br><br>
-        <h3>Class</h3>
-        <div>{{char.class.name}}: </div>
+        <ul>
+          <li *ngFor="let trait of char.race.traits">
+            <span>{{trait}}</span>
+          </li>
+        </ul>
+        <br>
+        <h2>Class</h2>
+        <div class="crop">
+          <img src="{{char.class.image}}" alt="class-image">
+        </div>
+        <h3>{{char.class.name}}</h3>
+        <div>Subclass: {{char.class.subclass}}</div>
         <div>{{char.class.desc}}</div>
+        <br>
+        <h2>Description</h2>
+        <span>Alignment: {{char.desc.alignment}}</span>
+        <span>Ideals: {{char.desc.ideals}}</span>
+        <span>Bonds: {{char.desc.bonds}}</span>
+        <span>Flaws: {{char.desc.flaws}}</span>
+        <span>Background: {{char.desc.background}}</span>
+        <span>Experience: {{char.exp}}</span>
+        <br>
         <ul>
           <li *ngFor="let prof of char.class.proficiencies">
             <span>{{prof}}</span>
           </li>
         </ul>
+        <br>
+        <h2>Stats</h2>
+        <ul>
+          <li><span>Strength: {{char.stats.strength + char.mods.strengthMod + char.race.bonuses.strengthMod}}</span></li>
+          <li><span>Dexterity: {{char.stats.dexterity + char.mods.dexterityMod + char.race.bonuses.dexterityMod}}</span></li>
+          <li><span>Constitution: {{char.stats.constitution + char.mods.constitutionMod + char.race.bonuses.constitutionMod}}</span></li>
+          <li><span>Intelligence: {{char.stats.intelligence + char.mods.intelligenceMod + char.race.bonuses.intelligenceMod}}</span></li>
+          <li><span>Wisdom: {{char.stats.wisdom + char.mods.wisdomMod + char.race.bonuses.wisdomMod}}</span></li>
+          <li><span>Charisma: {{char.stats.charisma + char.mods.charismaMod + char.race.bonuses.charismaMod}}</span></li>
+        </ul>
+        <br>
+        <h2>Weapons</h2>
+        <dl>
+          <li *ngFor="let weapon of char.weapons">
+            <dt>{{weapon.name}}</dt>
+            <dd>Description: {{weapon.desc}}</dd>
+            <dd>Type: {{weapon.type}}</dd>
+            <dd>Worth: {{weapon.worth}}</dd>
+            <dd>Sides: {{weapon.damage.sides}}</dd>
+            <dd>Rolls: {{weapon.rolls}}</dd>
+          </li>
+        </dl>
+        <br>
+        <h2>Clothing</h2>
+        <dl>
+          <li *ngFor="let clothing of char.clothes">
+            <dt>{{clothing.name}}</dt>
+            <dd>Description: {{clothing.desc}}</dd>
+            <dd>Worth: {{clothing.worth}}</dd>
+            <dd>AC: {{clothing.ac}}</dd>
+          </li>
+        </dl>
+        <br>
+        <h2>Inventory</h2>
+        <dl>
+          <li *ngFor="let item of char.inventory">
+            <dt>{{item.name}}</dt>
+            <dd>Description: {{item.desc}}</dd>
+            <dd>Worth: {{item.worth}}</dd>
+          </li>
+        </dl>
+        <br><br>
+        <button (click)="deleteChar(charName)">Delete Character</button>
       </div>
     </div>
   </div>

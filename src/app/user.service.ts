@@ -140,6 +140,24 @@ export class UserService {
     });
   }
 
+  deleteChar(newChar, callback: (data) => void) {
+    console.log("Deleting");
+    let header = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json; charset=utf-8",
+        "Authorization": "Basic " + btoa(this.getApiKey() + ":" + newChar),
+      })
+    };
+    this.http.post(this.getDeleteCharUrl(), header).subscribe((data) => {
+      console.log(data);
+      callback(data);
+    },
+    err => {
+      console.log(err);
+    });
+  }
+
+
   deleteAccount(callback: (data) => void) {
     let header = {
       headers: new HttpHeaders({

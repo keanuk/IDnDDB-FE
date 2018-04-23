@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 @Injectable()
 export class AuthGuard implements CanActivate {
 
+  verify = false;
+
   constructor(private user: UserService, private router: Router) {
   }
 
@@ -16,13 +18,13 @@ export class AuthGuard implements CanActivate {
       this.user.verifyLogin((data) => {
         console.log(data);
         if(data.str === "You're guccini") {
-          return true;
+          this.router.navigate(["home"]);
+          this.verify = true;
         }
         else {
           this.router.navigate(["login"]);
-          return false;
         }
       });
-      return true;
+      return this.verify;
     }
 }
